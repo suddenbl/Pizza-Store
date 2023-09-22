@@ -6,6 +6,12 @@ body {
   background-color: $background;
 }
 
+.logo-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .wrapper {
   width: calc(100vw - 100px);
   height: 100%;
