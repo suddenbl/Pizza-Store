@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { SearchContext } from '../App';
 import axios from 'axios';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
@@ -6,7 +7,7 @@ import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
 import Pagination from '../components/Pagination/Pagination';
 
-const Home = ({ searchValue }) => {
+const Home = () => {
   // Хранение массива пицц
   const [items, setItems] = useState([]);
   // Состояние загрузки для отображения скелетона
@@ -17,6 +18,8 @@ const Home = ({ searchValue }) => {
   const [sortType, setSortType] = useState({ name: 'популярности', sortProperty: 'rating' });
   // Состояние номера текущей страницы
   const [curPage, setCurPage] = useState(1);
+  // Передача значения состояния строки поиска
+  const { searchValue } = useContext(SearchContext);
 
   useEffect(() => {
     setIsLoading(true);
